@@ -40,10 +40,12 @@ class House:
         return  self
 
     def __iadd__(self, value):
-        return self.number_of_floor + value
+        self.number_of_floor = self.number_of_floor + value
+        return self
 
     def __radd__(self, value):
-        return  self.number_of_floor + value
+        self.number_of_floor = self.number_of_floor + value
+        return  self
 
 
 
