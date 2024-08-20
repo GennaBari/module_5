@@ -18,34 +18,34 @@ class House:
         return self.number_of_floor
 
     def __eq__(self, other):
-        return self.number_of_floor == other.number_of_floor
+        return  isinstance(other, House) and self.number_of_floor == other.number_of_floor
 
     def  __lt__(self, other):
-        return self.number_of_floor < other.number_of_floor
+        return isinstance(other, House) and self.number_of_floor < other.number_of_floor
 
     def __le__(self, other):
-        return self.number_of_floor <= other.number_of_floor
+        return isinstance(other, House) and self.number_of_floor <= other.number_of_floor
 
     def  __gt__(self, other):
-         return self.number_of_floor > other.number_of_floor
+         return isinstance(other, House) and self.number_of_floor > other.number_of_floor
 
     def __ge__(self, other):
-        return self.number_of_floor >= other.number_of_floor
+        return isinstance(other, House) and self.number_of_floor >= other.number_of_floor
 
     def __ne__(self, other):
-        return self.number_of_floor != other.number_of_floor
+        return isinstance(other, House) and self.number_of_floor != other.number_of_floor
 
     def __add__(self, value):
         self.number_of_floor = self.number_of_floor + value
-        return  self
+        return  isinstance(self, House) and self
 
     def __iadd__(self, value):
         self.number_of_floor = self.number_of_floor + value
-        return self
+        return isinstance(self, House) and self
 
     def __radd__(self, value):
         self.number_of_floor = self.number_of_floor + value
-        return  self
+        return  isinstance(self, House) and self
 
 
 
@@ -73,4 +73,11 @@ print(h1 >= h2) # __ge__
 print(h1 < h2) # __lt__
 print(h1 <= h2) # __le__
 print(h1 != h2) # __ne__
+
+
+
+
+
+
+
 
