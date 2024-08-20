@@ -18,34 +18,41 @@ class House:
         return self.number_of_floor
 
     def __eq__(self, other):
-        return  isinstance(other, House) and self.number_of_floor == other.number_of_floor
+        if isinstance(other, int) and isinstance(other, House):
+            return  self.number_of_floor == other.number_of_floor
 
     def  __lt__(self, other):
-        return isinstance(other, House) and self.number_of_floor < other.number_of_floor
+        if isinstance(other.number_of_floor, int) and isinstance(other, House):
+            return self.number_of_floor < other.number_of_floor
 
     def __le__(self, other):
-        return isinstance(other, House) and self.number_of_floor <= other.number_of_floor
+        if isinstance(other.number_of_floor, int) and isinstance(other, House):
+            return self.number_of_floor <= other.number_of_floor
 
     def  __gt__(self, other):
-         return isinstance(other, House) and self.number_of_floor > other.number_of_floor
+        if isinstance(other.number_of_floor, int) and isinstance(other, House):
+             return self.number_of_floor > other.number_of_floor
 
     def __ge__(self, other):
-        return isinstance(other, House) and self.number_of_floor >= other.number_of_floor
+        if isinstance(other.number_of_floor, int) and isinstance(other, House):
+            return self.number_of_floor >= other.number_of_floor
 
     def __ne__(self, other):
-        return isinstance(other, House) and self.number_of_floor != other.number_of_floor
+        if isinstance(other.number_of_floor, int) and isinstance(other, House):
+            return self.number_of_floor != other.number_of_floor
 
     def __add__(self, value):
-        self.number_of_floor = self.number_of_floor + value
-        return  isinstance(self, House) and self
+        if isinstance(value, int):
+            self.number_of_floor = self.number_of_floor + value
+        return self
 
     def __iadd__(self, value):
-        self.number_of_floor = self.number_of_floor + value
-        return isinstance(self, House) and self
+        return self.__add__(value)
 
     def __radd__(self, value):
-        self.number_of_floor = self.number_of_floor + value
-        return  isinstance(self, House) and self
+        if isinstance(value, int):
+            self.number_of_floor += value
+        return self
 
 
 
@@ -73,6 +80,7 @@ print(h1 >= h2) # __ge__
 print(h1 < h2) # __lt__
 print(h1 <= h2) # __le__
 print(h1 != h2) # __ne__
+
 
 
 
